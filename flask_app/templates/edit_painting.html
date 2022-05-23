@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Painting</title>
+</head>
+<body>
+        <a href="/pictures/new">Add a Painting</a>
+        <a href="/dashboard">Dashboard</a>
+        <form action="/logout">
+            <input type="submit" name="Logout">
+        </form>
+    <div>
+        <h2>Edit a Painting</h2>
+        <form action="/update/picture" method="POST">
+            {% with messages = get_flashed_messages(category_filter=['picture']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Uh Oh!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div>
+                <label for="title">title:</label>
+                <input type="text" name="title" value="{{edit.title}}">
+                <label for="description" >Description:</label>
+                <input type="textarea" name="description" value="{{edit.description}}">
+                <label for="price"> Price</label>
+                <input type="text" name="price" value="{{edit.price}}">
+                <input type="submit" value="Update">
+            </form> 
+    </div>
+</body>
+</html>

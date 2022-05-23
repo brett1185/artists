@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings</title>
+</head>
+<body>
+        <h1>Paintings</h1>
+    <div>
+        <h2>Welcome {{user.first_name}} {{user.last_name}}!!</h2>
+        <a href="/pictures/new">Add a Painting</a>
+        <form action="/logout">
+            <input type="submit" value='Logout'>
+        </form>
+    </div>
+    <h2>Paintings</h2>
+    <table>
+        <tbody>
+            {% for painting in paintings %}
+                <tr>
+                    <td>
+                        <a href="/paintings/{{painting.id}}">{{painting.title}}</a></td>
+                    </td>
+                    <td>
+                        by: {{user.first_name}} {{user.last_name}}
+                        {% if painting.user_id==session.user_id %}
+                            <a href="/delete/picture/{{painting.id}}">Delete</a>
+                            <a href="/edit/picture/{{painting.id}}">Edit</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

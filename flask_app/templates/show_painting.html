@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting Show</title>
+</head>
+<body>
+    <a href="/pictures/new">Add a Painting</a>
+    <a href="/dashboard">Dashboard</a>
+    <form action="/logout">
+        <input type="submit" name="Logout">
+    </form>
+    <h1>{{paintings.title}}</h1>
+    <p>Painted by {{user.first_name}} {{user.last_name}}</p>
+    <h6>Description:</h6>
+    <p>{{paintings.description}}</p>
+    <h6>Price:</h6>
+    <p>$ {{paintings.price}}</p>
+</body>
+</html>
